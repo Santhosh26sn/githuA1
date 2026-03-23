@@ -5,7 +5,7 @@ jobs:
     build:
         runs-on:ubuntu-latest
         steps:
-            - name: run cmd
+          - name: run cmd
                 run: echo "Hello world"
             - name: multiple cmd
                 run: |
