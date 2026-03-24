@@ -19,7 +19,7 @@ jobs:
     needs: [build, build2]
     runs-on: windows-latest
     steps:
-      - name: windows cmd
+      - name: windows cmds
         run: Write-Output "Windows String"
       - name: error cmd_test
         run: doesnotexist                
