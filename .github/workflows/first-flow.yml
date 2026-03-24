@@ -10,3 +10,16 @@ jobs:
         run: |
           npm -v
           node -v  
+  build2:
+    runs-on: macos-latest
+    steps:
+      - name: mac cmd
+        run: sw_vers
+  dependent_job:
+    needs: [build, build2]
+    runs-on: windows-latest
+    steps:
+      - name: windows cmd
+        run: Write-Output "Windows String"
+      - name: error cmd_test
+        run: doesnotexist                
