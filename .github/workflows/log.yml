@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Setting debug message
+      - name: Setting debug messages
         run: echo "::debug title=Debug title, file=app.js,line=1,endLine=3,col=5,endColumn=7::Missing semicolon"  
       - name: Setting warning message
         run: echo "::warning title=Warning title, file=app.js,line=1,endLine=3,col=5,endColumn=7::Missing semicolon"
