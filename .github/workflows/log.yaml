@@ -1,0 +1,22 @@
+name: logging
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setting debug message
+        run: echo "::debug title=Debug title, file=app.js,line=1,endLine=3,col=5,endColumn=7::Missing semicolon"  
+      - name: Setting warning message
+        run: echo "::warning title=Warning title, file=app.js,line=1,endLine=3,col=5,endColumn=7::Missing semicolon"
+      - name: group logs
+        run: |
+          echo "::group::My title"      
+          echo "Inside the group"
+          echo "::endgroup::"
+  variable:
+    runs-on: ubuntu-latest
+    steps:        
+      - name: MAsking a value
+        run: echo "::add-mask::Secret String"    
+      - name: Echo A secret
+        run: echo "Secret String"    
