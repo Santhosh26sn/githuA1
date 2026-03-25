@@ -17,6 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:        
       - name: MAsking a value
-        run: echo "::add-mask::Secret String"    
+        run: echo "::add-mask::Secret Strings"    
       - name: Echo A secret
         run: echo "Secret String"    
