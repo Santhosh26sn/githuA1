@@ -1,5 +1,8 @@
 name: working dir and shell
 on: [push]
+defaults:
+      run:
+        shell: bash 
 jobs:
   display_wordir_info:
     runs-on: ubuntu-latest
@@ -11,5 +14,25 @@ jobs:
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
-      #- name: change working dir
-       #run:           
+      - name: change working dir
+        working-directory: /home/runner
+        run: pwd
+  display_info_windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh 
+    steps:
+      - name: display info
+        run: |
+          dir
+          echo $env:GITHUB_SHA
+          echo $env:GITHUB_REPOSITORY
+          echo $env:GITHUB_WORKSPACE
+      - name: python shell
+        shell: python
+        run: |
+          import platform
+          print(platform.processor())
+            
+            
