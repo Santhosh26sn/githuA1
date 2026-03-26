@@ -1,0 +1,15 @@
+name: working dir and shell
+on: [push]
+jobs:
+  display_wordir_info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display working dir and github info
+        run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+      #- name: change working dir
+       #run:           
