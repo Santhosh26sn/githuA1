@@ -1,0 +1,15 @@
+name: Greet app
+on: [push]
+jobs:
+   build:
+     runs-on: ubuntu-latest  
+     steps:
+       - name: Git repo
+         id: greet
+         uses: actions/hello-world-javascript-action@79ac0da13ee392da3fdd151813d5ce4658cb7e27
+         with:
+           who-to-greet: Hello world!!
+       - name: output display
+         run: echo "${{ steps.greet.outputs.time}}"
+         
+                
