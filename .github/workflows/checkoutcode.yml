@@ -2,7 +2,7 @@ name: Checkout code
 on: [push]
 jobs:
   build:
-    runs-on: ubunutu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: list files before
         run: ls -a   
@@ -11,7 +11,7 @@ jobs:
       - name: list files after
         run: ls -a  
   build_test:
-    runs-on: ubunutu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: list files before
         run: ls -a
