@@ -1,0 +1,29 @@
+name: Functions
+on: [push]
+jobs:
+  Job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep
+        run: sleep 20
+      - name: step2
+        id: fail
+        run: exit 1
+      - name: failure
+        if: failure() && steps.fail.conclusion == 'failure'
+        run: echo "step 2 failed"
+      - name: always run
+        if: always()
+        run: echo "This will always run"
+      - name: cancelled
+        if: cancelled()
+        run: echo "This will run if the workflow is cancelled"
+      - name: success
+        if: success()
+        run: echo "This will run if all previous steps were successful"
+  Job2:
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+      - name: This will run if Job1 fails
+        run: echo "Job1 failed, so this job is running"      
