@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: content
-        run: echo "It is triggered bcoz Expression and context was completed"                
+        run: echo "It is triggered bcoz (Expression and context) was completed"                
