@@ -1,0 +1,11 @@
+name: workflow run
+on:
+  workflow_run:
+    workflows: ["Expression and context"]
+    types: [completed]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: content
+        run: echo "It is triggered bcoz Expression and context was completed"                
