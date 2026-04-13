@@ -6,12 +6,12 @@ jobs:
     steps:
       - name: Sleep
         run: sleep 20
-      - name: step2
-        id: fail
-        run: exit 1
-      - name: failure
-        if: failure() && steps.fail.conclusion == 'failure'
-        run: echo "step 2 failed"
+   #   - name: step2
+   #     id: fail
+   #     run: exit 1
+   #   - name: failure
+   #     if: failure() && steps.fail.conclusion == 'failure'
+   #     run: echo "step 2 failed"
       - name: always run
         if: always()
         run: echo "This will always run"
