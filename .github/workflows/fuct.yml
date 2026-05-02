@@ -5,13 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Sleep
-        run: sleep 20
-   #   - name: step2
-   #     id: fail
-   #     run: exit 1
-   #   - name: failure
-   #     if: failure() && steps.fail.conclusion == 'failure'
-   #     run: echo "step 2 failed"
+        run: sleep 80
+        timeout-minutes: 1
+      - name: step2
+        id: fail
+        run: exit 1
+      - name: failure
+        if: failure() && steps.fail.conclusion == 'failure'
+        run: echo "step 2 failed"
+      - name: failure
+        if: failure()  
+        run: echo "This job runs on failure"
       - name: always run
         if: always()
         run: echo "This will always run"
