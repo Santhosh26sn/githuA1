@@ -6,7 +6,7 @@ jobs:
     timeout-minutes: 1
     steps:
       - name: Sleep
-        run: sleep 20
+        run: sleep 70
 #        timeout-minutes: 1
       - name: step2
         id: fail
