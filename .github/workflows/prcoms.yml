@@ -6,7 +6,7 @@ jobs:
   display:
     runs-on: '${{ vars.JOB_RUNNER}}'
     permissions:
-      pull-requests: read
+      pull-requests: write
     steps:
       - name: Pr cmt display
         uses: actions/github-script@v6
