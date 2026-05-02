@@ -3,7 +3,7 @@ on: [workflow_dispatch]
 jobs:
   Job1:
     runs-on: ubuntu-latest
-  #  timeout-minutes: 1
+    timeout-minutes: 1
     steps:
       - name: Sleep
         run: sleep 20
