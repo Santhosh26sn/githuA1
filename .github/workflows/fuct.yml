@@ -3,12 +3,14 @@ on: [workflow_dispatch]
 jobs:
   Job1:
     runs-on: ubuntu-latest
+  #  timeout-minutes: 1
     steps:
       - name: Sleep
         run: sleep 80
-        timeout-minutes: 1
+#        timeout-minutes: 1
       - name: step2
         id: fail
+        continue-on-error: true
         run: exit 1
       - name: failure
         if: failure() && steps.fail.conclusion == 'failure'
