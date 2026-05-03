@@ -13,7 +13,14 @@ on:
 jobs:
   Pre_matrix:
     runs-on: ubuntu-latest
+    
     steps:
+      - uses: actions/github-script@v6
+        id: pre-matrix
+        with:
+          script: "return {os: context.payload.inputs['os'].split(','), 'node-version: context.payload.inputs['node-version'].split(',')}"
+          result-encoding: json
+      - run: echo "${{ steps.pre-matrix.outputs.result}}"   
       - run: echo "setOutput=value" >> $GITHUB_OUTPUT
         id: step-1
       - run: echo "setOutput=value1" >> $GITHUB_OUTPUT
