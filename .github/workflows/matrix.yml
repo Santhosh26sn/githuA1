@@ -20,7 +20,7 @@ jobs:
           - os: ubuntu-latest
             node-version: 14          
       max-parallel: 3
-      fail-fast: true 
+      fail-fast: false 
     runs-on: '${{ matrix.os }}'             
     steps:
       - if: matrix.experimental == true
