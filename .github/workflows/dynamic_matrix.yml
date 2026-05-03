@@ -1,0 +1,38 @@
+name: Dynamic jobs matrix
+on: 
+  workflow_dispatch:
+    inputs:
+      os:
+        description: 'Operating system'
+        default: "ubuntu-latest, windows-latest"
+        type: string
+      node-version:
+        description: 'Node versions'
+        default: "14, 15, 16"
+        type: string 
+jobs:
+  Pre_matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "setOutput=value" >> $GITHUB_OUTPUT
+        id: step-1
+      - run: echo "setOutput=value1" >> $GITHUB_OUTPUT
+        id: step-2
+      - run: |
+          echo "${{ steps.step-1.outputs.setOutput}}"  
+          echo "${{ steps.step-2.outputs.setOutput}}"  
+  node_matrix:      
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node-version: [14, 15, 16]        
+    runs-on: '${{ matrix.os }}'             
+    steps:
+      - name: check default node
+        run: node -v
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: check node version
+        run: node -v
