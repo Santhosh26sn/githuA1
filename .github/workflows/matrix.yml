@@ -1,5 +1,5 @@
 name: Multiple jobs matrix
-on: [push]
+on: [workflow_dispatch]
 jobs:
   node_matrix:
     continue-on-error: ${{ matrix.experimental == true}}    
