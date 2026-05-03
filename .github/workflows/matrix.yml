@@ -2,7 +2,7 @@ name: Multiple jobs matrix
 on: [push]
 jobs:
   node_matrix:
-    continue-on-error: true    
+    continue-on-error: ${{ matrix.experimental == true}}    
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
