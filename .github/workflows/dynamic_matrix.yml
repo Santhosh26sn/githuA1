@@ -18,7 +18,7 @@ jobs:
       - uses: actions/github-script@v6
         id: pre-matrix
         with:
-          script: "return {os: context.payload.inputs['os'].split(','), 'node-version: context.payload.inputs['node-version'].split(',')}"
+          script: "return {os: context.payload.inputs['os'].split(','), 'node-version': context.payload.inputs['node-version'].split(',')}"
           result-encoding: json
       - run: echo "${{ steps.pre-matrix.outputs.result}}"   
       - run: echo "setOutput=value" >> $GITHUB_OUTPUT
