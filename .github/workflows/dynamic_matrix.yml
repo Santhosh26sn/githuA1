@@ -33,8 +33,8 @@ jobs:
     needs: Pre_matrix     
     strategy:
       matrix:
-        os: ${{ fromJson(needs.Pre_matrix.outputs.matrix_script.os) }}
-        node-version: ${{ fromJson (needs.Pre_matrix.outputs.matrix_script.node-version)}}
+        os: ${{ fromJson(needs.Pre_matrix.outputs.matrix_script).os }}
+        node-version: ${{fromJson(needs.Pre_matrix.outputs.matrix_script).node-version}}
     runs-on: ${{ matrix.os }}         
     steps:
       - name: check default node
