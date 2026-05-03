@@ -1,0 +1,17 @@
+name: Multiple jobs matrix
+on: [push]
+jobs:
+  node_matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [14, 15, 16]      
+    steps:
+      - name: check default node
+        run: node -v
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - name: check node version
+        run: node -v
