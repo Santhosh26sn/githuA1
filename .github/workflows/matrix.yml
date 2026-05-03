@@ -2,16 +2,31 @@ name: Multiple jobs matrix
 on: [push]
 jobs:
   node_matrix:
-    runs-on: ubuntu-latest
+    continue-on-error: true    
     strategy:
       matrix:
-        node: [14, 15, 16]      
+        os: [ubuntu-latest, window-latest]
+        node-version: [14, 15, 16]
+        include:
+          - os: ubuntu-latest
+            node-version: 15
+          - experimental: false
+          - os: ubuntu-latest
+            node-version: 16
+            experimental: true
+        exclude:
+          - os: ubuntu-latest
+            node-version: 14
+          - experimental: false      
+      max-parallel: 3
+      fail-fast: false 
+    runs-on: '${{ matrix.os }}'             
     steps:
       - name: check default node
         run: node -v
       - name: setup node
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ matrix.node-version }}
       - name: check node version
         run: node -v
