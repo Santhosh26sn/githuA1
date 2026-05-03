@@ -13,7 +13,8 @@ on:
 jobs:
   Pre_matrix:
     runs-on: ubuntu-latest
-    
+    outputs:
+      matrix_script: "${{ steps.pre-matrix.outputs.result }}"
     steps:
       - uses: actions/github-script@v6
         id: pre-matrix
@@ -28,11 +29,12 @@ jobs:
       - run: |
           echo "${{ steps.step-1.outputs.setOutput}}"  
           echo "${{ steps.step-2.outputs.setOutput}}"  
-  node_matrix:      
+  node_matrix: 
+    needs: Pre_matrix     
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        node-version: [14, 15, 16]        
+        os: ${{ fromJson(needs.Pre_matrix.outputs.matrix_script.os) }}
+        node-version: ${{ fromJson (needs.Pre_matrix.outputs.matrix_script.node-version)}}
     runs-on: '${{ matrix.os }}'             
     steps:
       - name: check default node
