@@ -4,7 +4,7 @@ on:
     inputs:
       os:
         description: 'Operating system'
-        default: "ubuntu-latest, windows-latest"
+        default: "ubuntu-latest,windows-latest"
         type: string
       node-version:
         description: 'Node versions'
@@ -29,19 +29,19 @@ jobs:
       - run: |
           echo "${{ steps.step-1.outputs.setOutput}}"  
           echo "${{ steps.step-2.outputs.setOutput}}"  
-  node_matrix: 
-    needs: Pre_matrix     
-    strategy:
-      matrix:
-        os: ${{ fromJson(needs.Pre_matrix.outputs.matrix_script).os }}
-        node-version: ${{fromJson(needs.Pre_matrix.outputs.matrix_script).node-version}}
-    runs-on: ${{ matrix.os }}         
-    steps:
-      - name: check default node
-        run: node -v
-      - name: setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: check node version
-        run: node -v
+  #node_matrix: 
+    #needs: Pre_matrix     
+   # strategy:
+   #   matrix:
+   #     os: ${{ fromJson(needs.Pre_matrix.outputs.matrix_script).os }}
+   #     node-version: ${{fromJson(needs.Pre_matrix.outputs.matrix_script).node-version}}
+   # runs-on: ${{ matrix.os }}         
+   # steps:
+   #   - name: check default node
+   #     run: node -v
+   #   - name: setup node
+   #     uses: actions/setup-node@v3
+   #     with:
+   #       node-version: ${{ matrix.node-version }}
+   #   - name: check node version
+  #      run: node -v */
