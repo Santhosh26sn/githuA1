@@ -1,5 +1,5 @@
 name: Concourency
-run-name: Deploy to {{ inputs.env}}
+run-name: Deploy to (${{ inputs.env}})
 on:
   workflow_dispatch:
     inputs:
