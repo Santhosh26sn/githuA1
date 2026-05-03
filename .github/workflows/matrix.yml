@@ -23,7 +23,7 @@ jobs:
       fail-fast: true 
     runs-on: '${{ matrix.os }}'             
     steps:
-      - if: matrix.experimental == 'true'
+      - if: matrix.experimental == true
         run: exit 1
       - name: check default node
         run: node -v
