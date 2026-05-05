@@ -1,0 +1,17 @@
+name: cache
+on: [workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: install node
+        run: npm install
+      - name: Axiom script
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const axios = require('axios');
+            const res = await axios('https://icanhazdadjoke.com/', { headers: { Accept: 'text/plain' } })
+            console.log(res.data)
