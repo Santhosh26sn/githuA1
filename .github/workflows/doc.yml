@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: 26-alpine3.22
+      image: node:26-alpine3.22
       ports:
         - 80
       env:
