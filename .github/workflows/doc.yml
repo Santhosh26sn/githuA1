@@ -32,3 +32,9 @@ jobs:
         with:
           entrypoint: cat
           args: hello.txt    
+      - uses: actions/checkout@v3
+      - name: run script in container
+        uses: docker://node:18-alpine3.15
+        with:
+          entrypoint: ./script.sh
+          args: "Hello script"
