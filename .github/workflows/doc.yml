@@ -16,3 +16,12 @@ jobs:
           cat /etc/os-release
       - name: log env
         run: echo $NODE_ENV          
+      - name: container in step
+        uses: docker://node:18-alpine3.15
+        with:
+          entrypoint: /usr/local/bin/node
+          args: -p 2+5
+      - name: log ver
+        uses: docker://node:18-alpine3.15
+        with:
+          args: -v
