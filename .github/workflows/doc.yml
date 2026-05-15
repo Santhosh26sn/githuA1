@@ -17,7 +17,7 @@ jobs:
       - name: log env
         run: echo $NODE_ENV   
       - name: creat a file
-        run: echo 'Hello from docker container' > hello.txt"         
+        run: echo 'Hello from docker container' > hello.txt       
       - name: container in step
         uses: docker://node:18-alpine3.15
         with:
