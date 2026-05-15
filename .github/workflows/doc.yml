@@ -15,7 +15,9 @@ jobs:
           node -v
           cat /etc/os-release
       - name: log env
-        run: echo $NODE_ENV          
+        run: echo $NODE_ENV   
+      - name: creat a file
+        run: echo "Hello from docker container" > hello.txt"         
       - name: container in step
         uses: docker://node:18-alpine3.15
         with:
@@ -25,3 +27,8 @@ jobs:
         uses: docker://node:18-alpine3.15
         with:
           args: -v
+      - name: Show file content
+        uses: docker://node:18-alpine3.15
+        with:
+          entrypoint: cat
+          args: hello.txt    
