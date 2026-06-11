@@ -25,5 +25,5 @@ jobs:
     needs: ubuntu_build
     steps:
       - name: windows cmds
-        run: Write-Output "Windows String"
+        run: Write-Output "Windows Strings"
      
