@@ -10,3 +10,21 @@ jobs:
         uses: actions/checkout@v3
       - name: list files after
         run: ls -a
+  ubuntu_build: 
+    runs-on: ubuntu-latest
+    steps:
+     - name: run my cmd
+       run: echo "congrats Augustine for onsplotlight award"
+     - name: run muliple cmd
+       run: |
+         npm -v
+         node -v
+  windows_build:
+    runs-on: windows-latest
+    needs: ubuntu_build
+    steps:
+      - name: windows cmds
+        run: Write-Output "Windows String"
+      - name: error cmd_test
+        run: doesnotexist
+     
