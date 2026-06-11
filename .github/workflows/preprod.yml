@@ -26,6 +26,4 @@ jobs:
     steps:
       - name: windows cmds
         run: Write-Output "Windows String"
-      - name: error cmd_test
-        run: doesnotexist
      
