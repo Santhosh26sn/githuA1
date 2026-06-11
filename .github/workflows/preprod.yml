@@ -11,6 +11,7 @@ jobs:
       - name: list files after
         run: ls -a
   ubuntu_build: 
+    needs: build
     runs-on: ubuntu-latest
     steps:
      - name: run my cmd
