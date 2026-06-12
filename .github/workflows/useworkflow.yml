@@ -1,0 +1,14 @@
+name: Calling Reusable Workflows
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Input description"
+        type: string
+        default: "Just me"
+        required: false
+jobs:
+  calling-a-reusable-wf:
+    uses: ./.github/workflows/sharedworkflow.yml
+    with:
+      name: ${{ inputs.name }}
