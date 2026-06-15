@@ -3,7 +3,7 @@ on:
   workflow_call:
     inputs:
       name:
-        description: "Input description"
+        description: "This is python"
         type: string
         default: "santhosh"
         required: false
