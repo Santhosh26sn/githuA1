@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run cmd
-        run: echo "Hello new World!"
+        run: echo "Hello new World!!"
       - name: run multiple cmd
         run: |
           npm -v
